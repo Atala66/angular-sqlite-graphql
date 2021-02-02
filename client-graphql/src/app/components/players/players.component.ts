@@ -47,20 +47,23 @@ export class PlayersComponent implements OnInit {
     });
   }
 
-  public nextPage() {
-	this.page++;
-	this.update();
+
+  clickMe() {
+	  alert('vgd');
   }
 
-  public previousPage() {
-	  if(this.page > 0) { this.page -- };
-	 // this.update();
-
+ public update() {
+    this.query?.refetch({ offset: 10 * this.page });
   }
 
+ public nextPage() {
+    this.page++;
+    this.update();
+  }
 
-  private update() {
-	//this.query?.refetch({ offset: 10*this.page })
-}
+ public prevPage() {
+    if (this.page > 0) this.page--;
+    this.update();
+  }
 
 }

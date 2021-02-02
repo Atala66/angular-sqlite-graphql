@@ -31,8 +31,8 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "node_modules/material-design-lite/material.min.css",
-                            "src/styles.less"
+                            "src/styles.less",
+                            "node_modules/material-design-lite/material.min.css"
                         ],
                         "scripts": [
                             "node_modules/material-design-lite/material.min.js"

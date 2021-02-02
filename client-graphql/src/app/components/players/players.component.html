@@ -24,15 +24,19 @@
       </tr>
     </tbody>
   </table>
+
+ <!-- <button (click)="clickMe()">Click!!</button>-->
   <!-- pagination -->
-  <div class="paging">
-  <button (click)="previousPage()"
-    class="mdl-button mdl-js-button mdl-button--colored">
+<div class="paging" style="z-index: 99999">
+  <button
+    class="mdl-button mdl-js-button mdl-button--colored btn"
+    (click)="prevPage()">
     <i class="material-icons">arrow_back</i>
   </button>
-  Page {{ page + 1 }}
-  <button (click)="nextPage()"
-    class="mdl-button mdl-js-button mdl-button--colored">
+  Page {{ page+1 }}
+  <button
+    class="mdl-button mdl-js-button mdl-button--colored btn"
+    (click)="nextPage()">
     <i class="material-icons">arrow_forward</i>
   </button>
 </div>
