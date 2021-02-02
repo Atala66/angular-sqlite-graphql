@@ -30,7 +30,11 @@ const schema = buildSchema(
 	  points: Int
 	}`)
 
-
+/**
+ * 
+ * @param { busqueda } queryString 
+ * @param { devuelve uno o mas resultados } singleSearch 
+ */
 function queryData(queryString, singleSearch) {
     return new Promise((resolve, reject) => {
         var callback = (err, result) => {
@@ -49,7 +53,7 @@ const app = express().use(cors());
 
 const root = {
     players: args => { // cada una de estas se corresponde con los métodos de la QUERY
-        return queryData(`SELECT * FROM players LIMIT ${args.offset}${args.limit}`, false);
+        return queryData(`SELECT * FROM players LIMIT ${args.offset}, ${args.limit}`, false);
     },
     player: args => {
         return queryData(`SELECT * FROM players WHERE id='${args.id}'`, true);

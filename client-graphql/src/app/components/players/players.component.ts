@@ -4,9 +4,9 @@ import gql from 'graphql-tag'; // crea la query desde el front
 
 /**
  * @TODO - extraer las queries e importarlo
- *  */ 
+ *  */
 const PLAYERS_QUERY = gql`
-  query players($offset: Int) {
+  query players($offset:Int) {
     players(offset: $offset, limit: 10) {
       id
       first_name
@@ -34,36 +34,29 @@ export class PlayersComponent implements OnInit {
     this.getPlayers();
   }
 
-  getPlayers() {
+  public getPlayers() {
     this.query = this.apollo.watchQuery<any>({
-	  query: PLAYERS_QUERY,
-	  variables: { offset: 10*this.page }
-
+      query: PLAYERS_QUERY,
+      variables: { offset: 10 * this.page },
     });
-    this.query.valueChanges.subscribe((result:any) => {
+    this.query.valueChanges.subscribe((result: any) => {
       if (result) {
         this.players = result.data.players;
       }
     });
   }
 
-
-  clickMe() {
-	  alert('vgd');
-  }
-
- public update() {
-    this.query?.refetch({ offset: 10 * this.page });
-  }
-
- public nextPage() {
+  public nextPage() {
     this.page++;
     this.update();
   }
 
- public prevPage() {
+  public prevPage() {
     if (this.page > 0) this.page--;
     this.update();
   }
 
+  private update() {
+	this.query?.refetch({ offset: 1 * this.page});
+  }
 }
