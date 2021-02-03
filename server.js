@@ -60,26 +60,31 @@ const root = {
 
     },
     rankings: args => {
-        return queryData(`SELECT r.date, r.rank,r.points, 
-		p.id, p.first_name, p.last_name, p.hand, p.birthday, p.country
-		FROM players AS p 
-		LEFT JOIN rankings AS r
-		ON p.id=r.player 
-		WHERE r.rank=${args.rank}`, false).then(rows => rows.map(result => {
-            return {
-                date: result.date,
-                points: result.points,
-                rank: result.rank,
-                player: {
-                    id: result.id,
-                    first_name: result.first_name,
-                    last_name: result.last_name,
-                    hand: result.hand,
-                    birthday: result.birthday,
-                    country: result.country
-                }
-            }
-        }))
+        return queryData(
+            `SELECT r.date, r.rank, r.points,
+				  p.id, p.first_name, p.last_name, p.hand, p.birthday, p.country
+		  FROM players AS p
+		  LEFT JOIN rankings AS r
+		  ON p.id=r.player
+		  WHERE r.rank=${args.rank}`,
+            false
+        ).then(rows =>
+            rows.map(result => {
+                return {
+                    date: result.date,
+                    points: result.points,
+                    rank: result.rank,
+                    player: {
+                        id: result.id,
+                        first_name: result.first_name,
+                        last_name: result.last_name,
+                        hand: result.hand,
+                        birthday: result.birthday,
+                        country: result.country
+                    }
+                };
+            })
+        );
     }
 };
 

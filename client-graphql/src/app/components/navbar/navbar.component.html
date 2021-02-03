@@ -1,14 +1,14 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <div class="mdl-layout__header mdl-layout__header--waterfall">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title" routerLink="/">
+      <span class="mdl-layout-title" (click)="navigateToRoute('/')">
         <i class="material-icons">home</i> Angular with GraphQL
       </span>
       <div class="mdl-layout-spacer"></div>
       <ul class="mdl-navigation">
-        <li class="mdl-navigation__link" routerLink="/">Home</li>
-        <li class="mdl-navigation__link" routerLink="/players">Players</li>
-        <li class="mdl-navigation__link" routerLink="/ranking">Rankings</li>
+        <li class="mdl-navigation__link" (click)="navigateToRoute('/')">Home</li>
+        <li class="mdl-navigation__link" (click)="navigateToRoute('/players')">Players</li>
+        <li class="mdl-navigation__link" (click)="navigateToRoute('/rankings')">Rankings</li>
         <li class="mdl-navigation__link">
           Login
         </li>
@@ -23,9 +23,9 @@
 
   <div class="mdl-layout__drawer">
     <ul class="mdl-navigation">
-      <li class="mdl-navigation__link" routerLink="/">Home</li>
-      <li class="mdl-navigation__link" routerLink="/players">Players</li>
-      <li class="mdl-navigation__link" routerLink="/ranking">Rankings</li>
+      <li class="mdl-navigation__link" (click)="navigateToRoute('/')">Home</li>
+      <li class="mdl-navigation__link" (click)="navigateToRoute('/players')">Players</li>
+      <li class="mdl-navigation__link" (click)="navigateToRoute('/rankings')">Rankings</li>
       <li
         class="mdl-navigation__link"
       >

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo, QueryRef, Subscription } from 'apollo-angular';
+import { Router, RouteReuseStrategy } from '@angular/router';
+import { Apollo, QueryRef } from 'apollo-angular';
 import gql from 'graphql-tag'; // crea la query desde el front
 
 /**
@@ -28,7 +29,10 @@ export class PlayersComponent implements OnInit {
   public players: any[] = [];
   private query: QueryRef<any> | undefined;
 
-  constructor(private apollo: Apollo) {}
+  constructor(
+	  private apollo: Apollo,
+	  private router: Router
+	  ) {}
 
   ngOnInit(): void {
     this.getPlayers();
@@ -56,7 +60,14 @@ export class PlayersComponent implements OnInit {
     this.update();
   }
 
+
+  public getSinglePlayer(){
+	this.router.navigate(['/player']);
+}
+
   private update() {
-	this.query?.refetch({ offset: 1 * this.page});
+	this.query?.refetch({ offset: 10 * this.page});
   }
+
+
 }

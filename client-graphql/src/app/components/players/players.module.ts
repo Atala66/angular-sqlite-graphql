@@ -7,7 +7,7 @@ import { PlayersComponent } from './players.component';
 @NgModule({
   declarations: [PlayersComponent],
   imports: [
-    CommonModule
+	CommonModule,
   ],
   exports: [PlayersComponent]
 })

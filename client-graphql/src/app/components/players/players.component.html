@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody *ngFor="let player of players">
-      <tr>
+      <tr class="row" (click)="getSinglePlayer()">
         <td class="mdl-data-table__cell--non-numeric">
           {{ player.first_name }}
         </td>
